@@ -3,9 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Full Stack Project</title>
+    <title>Canine Enthusiast</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <!-- You code goes here-->
+    <main class="page-shell">
+      <header class="hero">
+        <h1>Canine Enthusiast</h1>
+        <p class="subtitle">
+          Discover dog photos and explore every breed and sub-breed from the Dog CEO API.
+        </p>
+      </header>
+
+      <section class="controls">
+        <button id="show-image-button" type="button">Show a dog image</button>
+        <button id="show-breeds-button" type="button">Show all breeds</button>
+      </section>
+
+      <section id="data-container" class="data-container">
+        <div id="result-message" class="placeholder">
+          Click a button to load results here.
+        </div>
+
+        <div id="image-result" class="result-box">
+          <p class="result-title">Dog image preview</p>
+          <div class="image-placeholder">Dog image will appear here.</div>
+        </div>
+
+        <div id="breed-list-result" class="result-box">
+          <p class="result-title">Breed list preview</p>
+          <div class="breed-list-placeholder">The full breed and sub-breed list will appear here.</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="index.js"></script>
   </body>
 </html>
