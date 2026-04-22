@@ -18,6 +18,7 @@
       <section class="controls">
         <button id="show-image-button" type="button">Show a dog image</button>
         <button id="show-breeds-button" type="button">Show all breeds</button>
+        <button id="show-favorites-button" type="button">View Favorites</button>
       </section>
 
       <section id="data-container" class="data-container">
@@ -28,11 +29,17 @@
         <div id="image-result" class="result-box">
           <p class="result-title">Dog image preview</p>
           <div class="image-placeholder">Dog image will appear here.</div>
+          <button id="save-favorite-image" type="button" style="display: none;">Save to Favorites</button>
         </div>
 
         <div id="breed-list-result" class="result-box">
           <p class="result-title">Breed list preview</p>
           <div class="breed-list-placeholder">The full breed and sub-breed list will appear here.</div>
+        </div>
+
+        <div id="favorites-result" class="result-box">
+          <p class="result-title">Your Favorite Dogs</p>
+          <div class="favorites-placeholder">Your saved favorite dog images will appear here.</div>
         </div>
       </section>
     </main>
