@@ -29,14 +29,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function removeFavorite(url) {
+        let favorites = getFavorites();
+        favorites = favorites.filter(fav => fav !== url);
+        localStorage.setItem('favoriteDogs', JSON.stringify(favorites));
+        displayFavorites();
+    }
+
     function displayFavorites() {
         const favorites = getFavorites();
         if (favorites.length === 0) {
             favoritesPlaceholder.innerHTML = '<p>No favorites saved yet.</p>';
         } else {
             let html = '<div class="favorites-gallery">';
-            favorites.forEach(url => {
-                html += `<img src="${url}" alt="Favorite Dog" style="max-width: 200px; margin: 10px;">`;
+            favorites.forEach((url, index) => {
+                html += `
+                    <div style="position: relative; display: inline-block;">
+                        <img src="${url}" alt="Favorite Dog" style="max-width: 200px; height: 200px; object-fit: cover; margin: 10px; border-radius: 8px;">
+                        <button onclick="removeFavoriteAtIndex(${index})" style="position: absolute; top: 12px; right: 12px; background-color: #ef4444; color: white; border: none; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 12px;">Delete</button>
+                    </div>
+                `;
             });
             html += '</div>';
             favoritesPlaceholder.innerHTML = html;
@@ -112,6 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
             favoritesResult.style.display = 'none';
         }
     }
+
+    window.removeFavoriteAtIndex = function(index) {
+        const favorites = getFavorites();
+        if (favorites[index]) {
+            removeFavorite(favorites[index]);
+        }
+    };
 
     showImageBtn.addEventListener('click', fetchRandomDog);
     showBreedsBtn.addEventListener('click', fetchBreedsList);
